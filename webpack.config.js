@@ -31,5 +31,8 @@ module.exports = {
     compress: true,
     port: 3000,
   },
+  experiments: {
+    asyncWebAssembly: true,
+  },
   mode: 'development',  // Set to 'production' for a production build
 };
