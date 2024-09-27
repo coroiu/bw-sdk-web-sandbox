@@ -1,8 +1,8 @@
-import { LogLevel, type BitwardenClient } from "@bitwarden/sdk-wasm";
+import { LogLevel, type RawBitwardenClient } from "@bitwarden/sdk-wasm";
 
 export async function createSdkClient(
   // ...args: ConstructorParameters<typeof BitwardenClient>
-): Promise<BitwardenClient> {
+): Promise<RawBitwardenClient> {
   // const settings_json = Convert.clientSettingsToJson({
   //   apiUrl: env.getApiUrl(),
   //   identityUrl: env.getIdentityUrl(),
@@ -11,6 +11,5 @@ export async function createSdkClient(
   // });
 
   const module = await import("@bitwarden/sdk-wasm");
-  return Promise.resolve(new module.BitwardenClient("{}", LogLevel.Debug));
+  return Promise.resolve(new module.RawBitwardenClient("{}", LogLevel.Debug));
 }
-
